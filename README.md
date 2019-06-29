@@ -1,0 +1,4 @@
+# Flask chat app
+
+This is an application written in Flask. The purpose of this project is to take 
+data from an URL and store the information in a list.
