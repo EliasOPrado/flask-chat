@@ -8,6 +8,31 @@
 </head>
 <body>
     <h1>Welcome, {{username}}</h1>
-    {{chat_messages}}
+    
+    <form method= "POST">
+        <textarea cols="50" rows="4" id="message" name="message"></textarea>
+        <br>
+        <button>Send Message</button>
+    </form>
+    
+    {% for message in chat_messages %}
+     <p>({{ message.timestamp}}) {{message.from}}: {{message.message}} </p>
+    {% endfor %}
+    
+    <script>
+    let textbox = document.getElementById("message")
+        let timer = setTimeout(function(){
+            location.reload();
+        }, 5000)
+        
+        textbox.onkeydown = function(e){
+            clearTimeout(timer)
+            
+            timer = setTimeout(function(){
+                location.reload();
+            }, 5000)
+        }
+        
+    </script>
 </body>
 </html>
